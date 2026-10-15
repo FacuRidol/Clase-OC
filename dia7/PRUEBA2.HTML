@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Menú con imagen</title>
+
+    <style>
+        /* Ocultamos el checkbox */
+        #menu-toggle {
+            display: none;
+        }
+
+        /* La imagen funciona como botón */
+        .menu-imagen {
+            width: 100px;
+            cursor: pointer;
+        }
+
+        /* La lista está oculta inicialmente */
+        .opciones {
+            display: none;
+            list-style: none;
+            padding: 0;
+            margin-top: 10px;
+        }
+
+        /* Cuando se hace clic en la imagen,
+           mostramos la lista */
+        #menu-toggle:checked + .menu-contenedor .opciones {
+            display: block;
+        }
+
+        /* Estilo de las opciones */
+        .opciones li {
+            background: #222;
+            color: white;
+            padding: 10px;
+            margin: 3px 0;
+            width: 150px;
+        }
+
+        .opciones li:hover {
+            background: #444;
+        }
+    </style>
+</head>
+
+<body>
+
+    <input type="checkbox" id="menu-toggle">
+
+    <div class="menu-contenedor">
+
+        <label for="menu-toggle">
+            <img src="imagen.jpg" class="menu-imagen" alt="Abrir menú">
+        </label>
+
+        <ul class="opciones">
+            <li>Opción 1</li>
+            <li>Opción 2</li>
+            <li>Opción 3</li>
+            <li>Opción 4</li>
+        </ul>
+
+    </div>
+
+</body>
+</html>

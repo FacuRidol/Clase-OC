@@ -1,0 +1,602 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ==================================================
+   VARIABLES
+   EDITÁ ESTAS VARIABLES PARA CAMBIAR EL DISEÑO
+================================================== */
+
+:root {
+
+    --color-principal: #082c6e;
+    --color-menu: #082c6e;;
+    --color-hover: #272727;
+
+    --color-texto: #ffffff;
+    --color-secundario: #aaaaaa;
+
+    --color-acento: #ff3b3b;
+
+    --ancho-menu: 320px;
+
+    --duracion: 0.35s;
+}
+
+
+/* ==================================================
+   BODY
+================================================== */
+
+body {
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: #f3f3f3;
+
+    color: #111;
+
+    overflow-x: hidden;
+}
+
+
+/* ==================================================
+   HEADER
+================================================== */
+
+.header {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 75px;
+
+    background: var(--color-principal);
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 35px;
+
+    z-index: 1000;
+}
+
+
+/* ==================================================
+   LOGO
+================================================== */
+
+.logo {
+
+    color: var(--color-texto);
+
+    text-decoration: none;
+
+    font-size: 15;
+    font-weight: 500;
+
+    height: 50px;
+    width:50px;
+    left:25px;    
+}
+
+.logo span {
+
+    color: var(--color-acento);
+}
+
+.ipm{
+    color:#f3f3f3;
+    font-size: 25;
+    font-weight: 500;
+
+}
+
+
+/* ==================================================
+   CHECKBOX
+================================================== */
+
+#menu {
+
+    display: none;
+}
+
+
+/* ==================================================
+   BOTÓN HAMBURGUESA
+================================================== */
+
+.hamburger {
+
+    position: fixed;
+
+    top: 22px;
+    right: 35px;
+
+    width: 35px;
+    height: 30px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    cursor: pointer;
+
+    z-index: 1100;
+}
+
+
+/* LAS 3 LÍNEAS */
+
+.hamburger span {
+
+    display: block;
+
+    width: 100%;
+    height: 4px;
+
+    background: white;
+
+    border-radius: 10px;
+
+    transition:
+        transform var(--duracion) ease,
+        opacity var(--duracion) ease,
+        width var(--duracion) ease;
+}
+
+
+/* ==================================================
+   MENÚ LATERAL
+================================================== */
+
+.nav-menu {
+
+    position: fixed;
+
+    top: 0;
+    right: 0;
+
+    width: var(--ancho-menu);
+    height: 100vh;
+
+    background: var(--color-menu);
+
+    padding-top: 75px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    /* OCULTO */
+
+    transform: translateX(100%);
+
+    transition: transform var(--duracion) ease;
+
+    z-index: 1050;
+
+    box-shadow: -10px 0 40px rgba(0, 0, 0, 0.25);
+}
+
+
+/* ==================================================
+   ENCABEZADO DEL MENÚ
+================================================== */
+
+.menu-header {
+
+    padding: 30px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.menu-header h2 {
+
+    color: white;
+
+    font-size: 14px;
+
+    letter-spacing: 3px;
+}
+
+
+/* ==================================================
+   LISTA
+================================================== */
+
+.nav-menu ul {
+
+    list-style: none;
+
+    padding: 20px 15px;
+}
+
+
+/* ==================================================
+   LINKS
+================================================== */
+
+.nav-menu li {
+
+    margin-bottom: 5px;
+}
+
+
+.nav-menu a {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    padding: 17px 15px;
+
+    color: var(--color-texto);
+
+    text-decoration: none;
+
+    font-size: 17px;
+
+    border-radius: 8px;
+
+    transition:
+
+        background var(--duracion) ease,
+
+        padding-left var(--duracion) ease,
+
+        color var(--duracion) ease;
+}
+
+
+/* ==================================================
+   HOVER
+================================================== */
+
+.nav-menu a:hover {
+
+    background: var(--color-hover);
+
+    color: var(--color-acento);
+
+    padding-left: 22px;
+}
+
+
+/* ==================================================
+   ICONOS
+================================================== */
+
+.icon {
+
+    width: 25px;
+
+    text-align: center;
+
+    color: var(--color-acento);
+
+    font-size: 16px;
+}
+
+
+/* ==================================================
+   FOOTER DEL MENÚ
+================================================== */
+
+.menu-footer {
+
+    margin-top: auto;
+
+    padding: 25px 30px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.menu-footer p {
+
+    color: var(--color-secundario);
+
+    font-size: 13px;
+}
+
+
+/* ==================================================
+   OVERLAY
+================================================== */
+
+.overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.65);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition:
+
+        opacity var(--duracion) ease,
+
+        visibility var(--duracion) ease;
+
+    z-index: 1020;
+
+    cursor: pointer;
+}
+
+
+/* ==================================================
+   MENÚ ABIERTO
+================================================== */
+
+#menu:checked ~ .nav-menu {
+
+    transform: translateX(0);
+}
+
+
+#menu:checked ~ .overlay {
+
+    opacity: 1;
+
+    visibility: visible;
+}
+
+
+/* ==================================================
+   ANIMACIÓN DEL BOTÓN
+================================================== */
+
+/* PRIMERA LÍNEA */
+
+#menu:checked + .hamburger span:nth-child(1) {
+
+    transform:
+        translateY(13px)
+        rotate(45deg);
+}
+
+
+/* SEGUNDA LÍNEA */
+
+#menu:checked + .hamburger span:nth-child(2) {
+
+    opacity: 0;
+
+    width: 0;
+}
+
+
+/* TERCERA LÍNEA */
+
+#menu:checked + .hamburger span:nth-child(3) {
+
+    transform:
+        translateY(-13px)
+        rotate(-45deg);
+}
+
+
+/* ==================================================
+   CONTENIDO
+================================================== */
+
+main {
+
+    padding-top: 75px;
+}
+
+
+.hero {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 30px;
+}
+
+
+.hero h1 {
+
+    font-size: clamp(40px, 7vw, 80px);
+
+    margin-bottom: 20px;
+}
+
+
+.hero p {
+
+    max-width: 600px;
+
+    font-size: 18px;
+
+    color: #666;
+
+    line-height: 1.6;
+}
+
+
+/* ==================================================
+   RESPONSIVE
+================================================== */
+
+@media (max-width: 600px) {
+
+    .header {
+
+        padding: 0 20px;
+    }
+
+    .hamburger {
+
+        right: 20px;
+    }
+
+    .nav-menu {
+
+        width: 85%;
+
+        max-width: 320px;
+    }
+
+}
+
+/* Footer de la web*/
+.footer {
+    left:0;
+    bottom:0;
+    position: fixed;
+
+    width: 100%;
+    height: 75px;
+
+    background: var(--color-principal);
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 35px;
+
+    z-index: 1000;
+}
+.textofooter{
+    text-decoration: none;
+    color:#f3f3f3;
+    
+
+}
+/**********************************************************/
+/* tarjetas volteables*/
+.cuadricula {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 10px;
+
+}
+/* CONTENEDOR */
+.contenedor {
+    width: 300px;
+    height: 400px;
+    perspective: 1000px;
+}
+
+/* OCULTAR EL CHECKBOX */
+.control-volteo {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* TARJETA CLICKEABLE */
+.tarjeta {
+    display: block;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+/* INTERIOR DE LA TARJETA */
+.tarjeta-interior {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.7s ease;
+}
+
+/* VOLTEAR AL HACER CLIC */
+.control-volteo:checked + .tarjeta .tarjeta-interior {
+    transform: rotateY(180deg);
+}
+
+/* CARAS */
+.cara {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+/* FRENTE */
+.frente {
+    background-color: #ffffff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.frente img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* INDICACIÓN SOBRE LA IMAGEN */
+.indicacion {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 15px;
+    text-align: center;
+    color: white;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+/* REVERSO */
+.reverso {
+    background-color: #17569b;
+    color: white;
+    transform: rotateY(180deg);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.reverso h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.reverso p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* INDICACIÓN DE FOCO PARA TECLADO */
+.control-volteo:focus-visible + .tarjeta {
+    outline: 3px solid #ffcc00;
+    outline-offset: 5px;
+}
+/*************************************************************/

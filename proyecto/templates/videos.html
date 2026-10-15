@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{url_for('static' , filename='video.css')}}">
+</head>
+<body>
+    
+    <header class="header">
+
+        <!-- LOGO -->
+        <a href="{{ url_for('home')}}" class="logo">
+            <img src="{{ url_for('static', filename='/repetidos/logo_sin_fondo.png') }}"alt="imagen" class="logo">
+        </a>
+        <nav class="ipm">Instituto Politecnico Modelo</nav>
+        
+
+
+        <!-- CONTROL DEL MENÚ -->
+        <input type="checkbox" id="menu">
+
+        <!-- BOTÓN HAMBURGUESA -->
+        <label for="menu" class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+
+        <!-- FONDO OSCURO -->
+        <label for="menu" class="overlay"></label>
+
+        <!-- MENÚ LATERAL -->
+        <nav class="nav-menu">
+
+            <div class="menu-header">
+                <h2>NUESTROS SITIOS</h2>
+            </div>
+
+            <ul>
+
+                <li>
+                    <a href="{{ url_for('home')}}">
+                        <span class="icon">⌂</span>
+                        Inicio
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ url_for('plantas')}}">
+                        <span class="icon">●</span>
+                        Album de plantas
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ url_for('milanesa') }}">
+                        <span class="icon">◆</span>
+                        Receta de milanesa
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ url_for('videos') }}">
+                        <span class="icon">■</span>
+                        Videos de despegues
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ url_for('menu') }}">
+                        <span class="icon">✉</span>
+                        Menu de cafeteria
+                    </a>
+                </li>
+
+            </ul>
+
+            <div class="menu-footer">
+                <p>© 2026 MiSitio</p>
+            </div>
+
+        </nav>
+
+    </header>
+    <main class="mar">
+        <h1>A continuacion presentamos videos del despegue de naves espaciales</h1>
+        <ul class="vid2">
+            <li><iframe class="vid" width="890" height="501" src="https://www.youtube.com/embed/y0pmx1oUyJ0" title="La misión Artemis II de la NASA despega en una misión histórica a la Luna." frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></li>
+            <li><iframe class="vid" width="890" height="501" src="https://www.youtube.com/embed/0aiOMxW0zBY" title="Despegue del Discovery, cuidado con los parlantes!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></li>
+
+        </ul>
+        
+    </main>
+    <footer>
+        <footer class="footer"><a href="******" class="textofooter"><h2>Sobre Nosotros</h2></a></footer>
+    </footer>
+</body>
+</html>
