@@ -1,0 +1,132 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="formulario.css">   
+</head>
+<body>
+    <header class="header">
+
+        <!-- LOGO -->
+        <a href="#" class="logo">
+            <img src="/dia7/repetidos/logo_sin_fondo.png" alt="imagen" class="logo">
+        </a>
+        <nav class="ipm">Instituto Politecnico Modelo</nav>
+        
+
+
+        <!-- CONTROL DEL MENÚ -->
+        <input type="checkbox" id="menu">
+
+        <!-- BOTÓN HAMBURGUESA -->
+        <label for="menu" class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+
+
+        <!-- FONDO OSCURO -->
+        <label for="menu" class="overlay"></label>
+
+
+        <!-- MENÚ LATERAL -->
+        <nav class="nav-menu">
+
+            <div class="menu-header">
+                <h2>NUESTROS SITIOS</h2>
+            </div>
+
+            <ul>
+
+                <li>
+                    <a href="./index.html">
+                        <span class="icon">⌂</span>
+                        Inicio
+                    </a>
+                </li>
+
+                <li>
+                    <a href="./plantas.html">
+                        <span class="icon">●</span>
+                        Album de plantas
+                    </a>
+                </li>
+
+                <li>
+                    <a href="./milanesa.html">
+                        <span class="icon">◆</span>
+                        Receta de milanesa
+                    </a>
+                </li>
+
+                <li>
+                    <a href="./videos.html">
+                        <span class="icon">■</span>
+                        Viedos de despegues
+                    </a>
+                </li>
+
+                <li>
+                    <a href="./menu.html">
+                        <span class="icon">✉</span>
+                        Menu de cafeteria
+                    </a>
+                </li>
+
+            </ul>
+
+            <div class="menu-footer">
+                <p>© 2026 MiSitio</p>
+            </div>
+
+        </nav>
+
+    </header>
+ 
+ 
+    <div class="bloque">
+        <ul>
+        
+            <h1>Formulario de contacto</h1>
+
+            <!-- Campo de texto -->
+
+            <label>Nombre:</label>
+            <input type="text" placeholder="Escribe tu nombre" required>
+            <br>
+
+            <!-- Campo de contraseña (los caracteres se ocultan) -->
+            <label>Contraseña:</label>
+            <input type="password" placeholder="Tu clave secreta">
+            <br>
+
+            <!-- Campo numérico -->
+            <label>Edad:</label>
+            <input type="number" min="18" max="99">
+            <br>
+
+            <!-- Casilla de verificación -->
+            <label>Acepto términos:</label>
+            <input type="checkbox" name="terms">
+            <br>
+
+            <!-- Selector de fecha -->
+            <label>Fecha de Nacimiento:</label>
+            <input type="date">
+            <br>
+
+            <!-- Botón de envío -->
+            <button type="submit">Enviar Datos</button>
+            <br>
+            <a href="index.html">
+                <button type="button">Volver al Index</button>
+            </a>
+        </ul>
+    </div>
+</body>
+<footer class="footer">
+        <a href="./nosotros.html" class="textofooter"><h2>Sobre Nosotros</h2></a>
+</footer>

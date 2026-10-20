@@ -1,0 +1,545 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ==================================================
+   VARIABLES
+   EDITÁ ESTAS VARIABLES PARA CAMBIAR EL DISEÑO
+================================================== */
+
+:root {
+
+    --color-principal: #082c6e;
+    --color-menu: #082c6e;;
+    --color-hover: #272727;
+
+    --color-texto: #ffffff;
+    --color-secundario: #aaaaaa;
+
+    --color-acento: #ff3b3b;
+
+    --ancho-menu: 320px;
+
+    --duracion: 0.35s;
+}
+
+
+/* ==================================================
+   BODY
+================================================== */
+
+body {
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: #f3f3f3;
+
+    color: #111;
+
+    overflow-x: hidden;
+}
+
+
+/* ==================================================
+   HEADER
+================================================== */
+
+.header {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 75px;
+
+    background: var(--color-principal);
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 35px;
+
+    z-index: 1000;
+}
+
+
+/* ==================================================
+   LOGO
+================================================== */
+
+.logo {
+
+    color: var(--color-texto);
+
+    text-decoration: none;
+
+    font-size: 15;
+    font-weight: 500;
+
+    height: 50px;
+    width:50px;
+    left:25px;    
+}
+
+.logo span {
+
+    color: var(--color-acento);
+}
+
+.ipm{
+    color:#f3f3f3;
+    font-size: 25;
+    font-weight: 500;
+
+}
+
+
+/* ==================================================
+   CHECKBOX
+================================================== */
+
+#menu {
+
+    display: none;
+}
+
+
+/* ==================================================
+   BOTÓN HAMBURGUESA
+================================================== */
+
+.hamburger {
+
+    position: fixed;
+
+    top: 22px;
+    right: 35px;
+
+    width: 35px;
+    height: 30px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    cursor: pointer;
+
+    z-index: 1100;
+}
+
+
+/* LAS 3 LÍNEAS */
+
+.hamburger span {
+
+    display: block;
+
+    width: 100%;
+    height: 4px;
+
+    background: white;
+
+    border-radius: 10px;
+
+    transition:
+        transform var(--duracion) ease,
+        opacity var(--duracion) ease,
+        width var(--duracion) ease;
+}
+
+
+/* ==================================================
+   MENÚ LATERAL
+================================================== */
+
+.nav-menu {
+
+    position: fixed;
+
+    top: 0;
+    right: 0;
+
+    width: var(--ancho-menu);
+    height: 100vh;
+
+    background: var(--color-menu);
+
+    padding-top: 75px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    /* OCULTO */
+
+    transform: translateX(100%);
+
+    transition: transform var(--duracion) ease;
+
+    z-index: 1050;
+
+    box-shadow: -10px 0 40px rgba(0, 0, 0, 0.25);
+}
+
+
+/* ==================================================
+   ENCABEZADO DEL MENÚ
+================================================== */
+
+.menu-header {
+
+    padding: 30px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.menu-header h2 {
+
+    color: white;
+
+    font-size: 14px;
+
+    letter-spacing: 3px;
+}
+
+
+/* ==================================================
+   LISTA
+================================================== */
+
+.nav-menu ul {
+
+    list-style: none;
+
+    padding: 20px 15px;
+}
+
+
+/* ==================================================
+   LINKS
+================================================== */
+
+.nav-menu li {
+
+    margin-bottom: 5px;
+}
+
+
+.nav-menu a {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    padding: 17px 15px;
+
+    color: var(--color-texto);
+
+    text-decoration: none;
+
+    font-size: 17px;
+
+    border-radius: 8px;
+
+    transition:
+
+        background var(--duracion) ease,
+
+        padding-left var(--duracion) ease,
+
+        color var(--duracion) ease;
+}
+
+
+/* ==================================================
+   HOVER
+================================================== */
+
+.nav-menu a:hover {
+
+    background: var(--color-hover);
+
+    color: var(--color-acento);
+
+    padding-left: 22px;
+}
+
+
+/* ==================================================
+   ICONOS
+================================================== */
+
+.icon {
+
+    width: 25px;
+
+    text-align: center;
+
+    color: var(--color-acento);
+
+    font-size: 16px;
+}
+
+
+/* ==================================================
+   FOOTER DEL MENÚ
+================================================== */
+
+.menu-footer {
+
+    margin-top: auto;
+
+    padding: 25px 30px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.menu-footer p {
+
+    color: var(--color-secundario);
+
+    font-size: 13px;
+}
+
+
+/* ==================================================
+   OVERLAY
+================================================== */
+
+.overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.65);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition:
+
+        opacity var(--duracion) ease,
+
+        visibility var(--duracion) ease;
+
+    z-index: 1020;
+
+    cursor: pointer;
+}
+
+
+/* ==================================================
+   MENÚ ABIERTO
+================================================== */
+
+#menu:checked ~ .nav-menu {
+
+    transform: translateX(0);
+}
+
+
+#menu:checked ~ .overlay {
+
+    opacity: 1;
+
+    visibility: visible;
+}
+
+
+/* ==================================================
+   ANIMACIÓN DEL BOTÓN
+================================================== */
+
+/* PRIMERA LÍNEA */
+
+#menu:checked + .hamburger span:nth-child(1) {
+
+    transform:
+        translateY(13px)
+        rotate(45deg);
+}
+
+
+/* SEGUNDA LÍNEA */
+
+#menu:checked + .hamburger span:nth-child(2) {
+
+    opacity: 0;
+
+    width: 0;
+}
+
+
+/* TERCERA LÍNEA */
+
+#menu:checked + .hamburger span:nth-child(3) {
+
+    transform:
+        translateY(-13px)
+        rotate(-45deg);
+}
+
+
+/* ==================================================
+   CONTENIDO
+================================================== */
+
+main {
+
+    padding-top: 75px;
+}
+
+
+.hero {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 30px;
+}
+
+
+.hero h1 {
+
+    font-size: clamp(40px, 7vw, 80px);
+
+    margin-bottom: 20px;
+}
+
+
+.hero p {
+
+    max-width: 600px;
+
+    font-size: 18px;
+
+    color: #666;
+
+    line-height: 1.6;
+}
+
+
+/* ==================================================
+   RESPONSIVE
+================================================== */
+
+@media (max-width: 600px) {
+
+    .header {
+
+        padding: 0 20px;
+    }
+
+    .hamburger {
+
+        right: 20px;
+    }
+
+    .nav-menu {
+
+        width: 85%;
+
+        max-width: 320px;
+    }
+
+}
+
+/* Footer de la web*/
+.footer {
+    left:0;
+    bottom:0;
+    position: fixed;
+
+    width: 100%;
+    height: 75px;
+
+    background: var(--color-principal);
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 35px;
+
+    z-index: 1000;
+}
+.textofooter{
+    text-decoration: none;
+    color:#f3f3f3;
+
+}
+/**********************************************************/
+
+.bloque{
+    position: relative;
+    top: 75px;
+    left: 75px;
+    max-width: 350px;
+    max-height: 250px;
+    font-size: 18px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #111;
+    line-height: 1.6;
+    background:seashell;
+    border-radius: 10px;
+    border-color:#111;
+    border-width: 2px;
+    border-style: solid;   
+    list-style-type: none; 
+
+}
+.bloque2{
+    position: relative;
+    top: 75px;
+    left: 75px;
+    width: 350px;
+    height: 250px;
+    font-size: 18px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #111;
+    line-height: 1.6;
+    background:seashell;
+    border-radius: 10px;
+    border-color:#111;
+    border-width: 2px;
+    border-style: solid;   
+    list-style-type: none; 
+
+}
+.links{
+    text-decoration: none;
+    color:#111;
+}
+
+.organizacion{
+    display: grid;
+    column-gap: 20px;
+    row-gap: 20px;
+    justify-content: center;
+    align-items: center;
+
+
+}
